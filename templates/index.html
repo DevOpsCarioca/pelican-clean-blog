@@ -23,6 +23,14 @@
 {% endblock header %}
 
 {% block content %}
+    {% if MEETUP_DATE %}
+    <div class="next-meetup">
+        <p class="date"><span class="highlight">{{ MEETUP_DATE_LABEL }}</span>{{ MEETUP_DATE }}</p>
+        <p class="place"><span class="highlight">{{ MEETUP_PLACE_LABEL }}</span>{{ MEETUP_PLACE }}</p>
+        <p class="address"><span class="highlight">{{ MEETUP_ADDRESS_LABEL }}</span>{{ MEETUP_ADDRESS }}</p>
+    </div>
+    <hr>
+    {% endif %}
     {% for article in articles_page.object_list %}
         <div class="post-preview">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
